@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="/assets/css/article/art_list.css">
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">文章列表</div>
+        <div class="layui-card-body">
+            <!-- 筛选区 -->
+            <!-- 文章列表区 -->
+            <table class="layui-table">
+                <colgroup>
+                    <col>
+                    <col width="150">
+                    <col width="180">
+                    <col width="150">
+                    <col width="150">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>文章标题</th>
+                        <th>分类</th>
+                        <th>发表时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>贤心</td>
+                        <td>贤心</td>
+                        <td>贤心</td>
+                        <td>2016-11-29</td>
+                        <td>人生就像是一场修行</td>
+                    </tr> -->
+
+                </tbody>
+            </table>
+            <!-- 分页区 -->
+        </div>
+    </div>
+    <!-- 引入模板引擎脚本 -->
+    <script src="/assets/lib/template-web.js"></script>
+    <!-- 文章列表的 模板引擎 -->
+    <script type="text/html" id="tpl-table">
+        {{each data}}
+        <tr>
+            <td> {{$value.title}} </td>
+            <td>{{$value.cate_name}}</td>
+            <td>{{$value.pub_date|dateFormat}}</td>
+            <td>{{$value.state}}</td>
+            <td>
+                <button type="button" class="layui-btn layui-btn-xs">编辑</button>
+                <button type="button" class="layui-btn layui-btn-xs layui-btn-danger">删除</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+
+    <!-- 导入 layui 的JS文件 -->
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <!-- 引入jq -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- 引入baseAPI -->
+    <script src="/assets/js/baseAPI.js"></script>
+
+    <!-- 引入自己的js -->
+    <script src="/assets/js/article/art_list.js"></script>
+</body>
+
+</html>
